@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         rb.setButtonDrawable(null);
                         rb.setGravity(Gravity.CENTER);
                         rb.setText(item.name);
-                        rb.setTag(i);
+                        rb.setTag(item.subItemCount);
                         rb.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                         try {
                             rb.setTextColor(getResources().getColorStateList(R.color.bg_block_text));

@@ -7,6 +7,7 @@ public class FunctionItem {
     public String imageUrl = "";
     public String background ="";
     public boolean isTitle = false;
+    public int subItemCount = 0;
 
 
 
@@ -15,6 +16,12 @@ public class FunctionItem {
         this.isSelect = isSelect;
         this.imageUrl = imageUrl;
         this.background = background;
+    }
+
+    public FunctionItem(String name,boolean isTitle,int subItemCount){
+        this.name = name;
+        this.isTitle = isTitle;
+        this.subItemCount = subItemCount;
     }
 
     public FunctionItem(String name,boolean isTitle){

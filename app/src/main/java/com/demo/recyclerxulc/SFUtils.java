@@ -96,18 +96,21 @@ public class SFUtils {
                 Gson gson = new Gson();
                 tabItems =  gson.fromJson(allData,new TypeToken<List<TabItem>>(){}.getType());
                 if(tabItems!=null){
+                    int tabItemsCount = 0; //用于标记之后滑动的位置
                     for(int i=0;i< tabItems.size();i++){
-                        FunctionItem functionItem = new FunctionItem(tabItems.get(i).getTabName(),true);
+                        FunctionItem functionItem = new FunctionItem(tabItems.get(i).getTabName(),true,tabItemsCount);
+                        tabItemsCount = tabItemsCount + tabItems.get(i).getFunctionItems().size() +1;
                         functionItems.add(functionItem);
                     }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else{
-            Gson gson = new Gson();
-            functionItems =  gson.fromJson(allData,new TypeToken<List<FunctionItem>>(){}.getType());
         }
+//        else{
+//            Gson gson = new Gson();
+//            functionItems =  gson.fromJson(allData,new TypeToken<List<FunctionItem>>(){}.getType());
+//        }
         return functionItems;
     }
     public void saveSelectFunctionItem(List<FunctionItem> selData){
